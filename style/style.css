@@ -210,7 +210,7 @@ body {
 .choice-btn[data-choice="rock"] {
     grid-area: rock;
     position: relative;
-    bottom: -16px;
+    bottom: -40px;
 }
 
 /* Results */
@@ -464,7 +464,7 @@ footer {
         position: absolute;
         width: 100%;
         height: 100%;
-        left: 12%;
+        left: 10%;
         top: 35%;
         background: url(../images/bg-triangle.svg) no-repeat;
         z-index: -1;
@@ -496,20 +496,25 @@ footer {
     .results_result {
         min-width: 2rem;
         min-height: 2rem;
-        background: #16213d;
-        border-radius: 50%;
         transform: scale(1.2);
-        z-index: -1;
+        position: relative;
+        top: -120%;
+        left: 10%;
     }
 
     .results_heading {
         font-size: 1rem;
-        letter-spacing: 0.1rem;
-        padding: 4rem 0 8rem;
+        position: relative;
+        bottom: -100%;
+        left: 10%;
     }
 
     .results_winner {
         position: absolute;
         bottom: 18%;
+    }
+
+    .results.show-winner {
+        white-space: nowrap;
     }
 }
