@@ -68,6 +68,8 @@ body {
     min-height: 100vh;
     text-transform: uppercase;
     color: var(--ligth-text);
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .container {
@@ -397,7 +399,6 @@ footer {
     color: hsl(228, 45%, 44%); 
 }
 
-/* Utilities */
 .preload * {
     transition: none;
 }
@@ -408,15 +409,13 @@ footer {
 
 /* Responsive View */
 @media screen and (max-width: 375px) {
-    body {
-        min-height: 100vh;
-    }
-    
     .container {
         position: relative;
         max-width: 700px;
         margin: 0 auto;
         padding-top: 2rem;
+        overflow-x: hidden;
+        overflow-y: hidden;
     }
     
     .header {
@@ -457,6 +456,12 @@ footer {
 
     .choice img {
         transform: scale(1);
+    }
+
+    .choice-btn[data-choice="rock"] {
+        grid-area: rock;
+        position: relative;
+        bottom: 10px;
     }
 
     .game::before {

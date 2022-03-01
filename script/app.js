@@ -1,12 +1,16 @@
-// Prevent animation onload
-setTimeout(() => {
-    document.body.classList.remove('preload')
-}, 500);
-
-// Variables
+// Main Variables
 const btnRules = document.getElementById('rules_btn');
 const btnClose = document.getElementById('close_btn');
 const modalRules = document.getElementById('modal');
+const choiceButtons = document.querySelectorAll('.choice-btn');
+const gameDiv = document.getElementById('game');
+const resultsDiv = document.querySelector('.results');
+const resultDivs = document.querySelectorAll('.results_result');
+const resultWinner = document.getElementById('results_winner');
+const resultText = document.getElementById('results_text');
+const playAgainBtn = document.getElementById('play_again');
+const scoreNumber = document.getElementById('score_number'); 
+let score = 0;
 
 const CHOICES = [
     {
@@ -23,18 +27,7 @@ const CHOICES = [
     },
 ];
 
-const choiceButtons = document.querySelectorAll('.choice-btn');
-const gameDiv = document.getElementById('game');
-const resultsDiv = document.querySelector('.results');
-const resultDivs = document.querySelectorAll('.results_result');
-const resultWinner = document.getElementById('results_winner');
-const resultText = document.getElementById('results_text');
-const playAgainBtn = document.getElementById('play_again');
-const scoreNumber = document.getElementById('score_number'); 
-let score = 0;
-
-
-// Game Logic
+// Game Basics
 choiceButtons.forEach((button) => {
     button.addEventListener("click", () => {
         const choiceName = button.dataset.choice;
@@ -94,7 +87,7 @@ function isWinner(results) {
     return results[0].beats === results[1].name;
 }
 
-// Play Again
+// Play Again Option
 playAgainBtn.addEventListener("click", () => {
     gameDiv.classList.toggle("hidden");
     resultsDiv.classList.toggle("hidden");
@@ -109,13 +102,13 @@ playAgainBtn.addEventListener("click", () => {
     resultsDiv.classList.toggle("show-winner");
 });
 
-// Score
+// Score Display
 function keepScore(point) {
     score += point
     scoreNumber.innerText = score
 }
 
-// Show and Hide the Rules
+// The Rules: Show and Hide
 btnRules.addEventListener('click', () => {
     modalRules.classList.toggle('show-modal');
 });
